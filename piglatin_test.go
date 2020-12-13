@@ -1,8 +1,13 @@
-package piglatin
+package piglatin_test
 
-import "testing"
+import (
+	"testing"
 
-func TestTranslateWord(t *testing.T) {
+	"github.com/igkostyuk/piglatin"
+)
+
+//nolint: funlen
+func TestWords(t *testing.T) {
 	t.Run("word that begin with vowel sounds", func(t *testing.T) {
 		tt := []struct {
 			input string
@@ -18,7 +23,7 @@ func TestTranslateWord(t *testing.T) {
 			{input: "I", want: "Iyay"},
 		}
 		for _, test := range tt {
-			got := translateWord(test.input)
+			got := piglatin.Translate(test.input)
 			if got != test.want {
 				t.Errorf("for %s got %s want %s", test.input, got, test.want)
 			}
@@ -40,7 +45,7 @@ func TestTranslateWord(t *testing.T) {
 			{input: "bagel", want: "agelbay"},
 		}
 		for _, test := range tt {
-			got := translateWord(test.input)
+			got := piglatin.Translate(test.input)
 			if got != test.want {
 				t.Errorf("for %s got %s want %s", test.input, got, test.want)
 			}
@@ -60,16 +65,15 @@ func TestTranslateWord(t *testing.T) {
 			{input: "store", want: "orestay"},
 		}
 		for _, test := range tt {
-			got := translateWord(test.input)
+			got := piglatin.Translate(test.input)
 			if got != test.want {
 				t.Errorf("for %s got %s want %s", test.input, got, test.want)
 			}
 		}
 	})
-
 }
 
-func TestTranslate(t *testing.T) {
+func TestPhrases(t *testing.T) {
 	tt := []struct {
 		input string
 		want  string
@@ -106,7 +110,7 @@ func TestTranslate(t *testing.T) {
 		{input: "Happy Birthday", want: "Appyhay Irthdaybay"},
 	}
 	for _, test := range tt {
-		got := Translate(test.input)
+		got := piglatin.Translate(test.input)
 		if got != test.want {
 			t.Errorf("for %s got %s want %s", test.input, got, test.want)
 		}
