@@ -10,8 +10,7 @@ const (
 	consonantSuffix = "ay"
 )
 
-//TranslateWord translate english word into the piglatina word
-func TranslateWord(word string) string {
+func translateWord(word string) string {
 	if len(word) == 0 {
 		return word
 	}
@@ -34,12 +33,12 @@ func TranslateWord(word string) string {
 	return word
 }
 
-//TranslatePhrase translate english phrace into the piglatina phrase
-func TranslatePhrase(phrase string) string {
+//Translate translate english phrace or word into the piglatina
+func Translate(phrase string) string {
 	words := strings.Fields(phrase)
 	for i, w := range words {
 		w = strings.TrimRightFunc(w, isNotLetter)
-		words[i] = strings.Replace(words[i], w, TranslateWord(w), 1)
+		words[i] = strings.Replace(words[i], w, translateWord(w), 1)
 	}
 	return strings.Join(words, " ")
 }

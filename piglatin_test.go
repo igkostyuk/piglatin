@@ -2,7 +2,7 @@ package piglatin
 
 import "testing"
 
-func TestPigLatin(t *testing.T) {
+func TestTranslateWord(t *testing.T) {
 	t.Run("word that begin with vowel sounds", func(t *testing.T) {
 		tt := []struct {
 			input string
@@ -18,7 +18,7 @@ func TestPigLatin(t *testing.T) {
 			{input: "I", want: "Iyay"},
 		}
 		for _, test := range tt {
-			got := TranslateWord(test.input)
+			got := translateWord(test.input)
 			if got != test.want {
 				t.Errorf("for %s got %s want %s", test.input, got, test.want)
 			}
@@ -40,7 +40,7 @@ func TestPigLatin(t *testing.T) {
 			{input: "bagel", want: "agelbay"},
 		}
 		for _, test := range tt {
-			got := TranslateWord(test.input)
+			got := translateWord(test.input)
 			if got != test.want {
 				t.Errorf("for %s got %s want %s", test.input, got, test.want)
 			}
@@ -60,7 +60,7 @@ func TestPigLatin(t *testing.T) {
 			{input: "store", want: "orestay"},
 		}
 		for _, test := range tt {
-			got := TranslateWord(test.input)
+			got := translateWord(test.input)
 			if got != test.want {
 				t.Errorf("for %s got %s want %s", test.input, got, test.want)
 			}
@@ -69,7 +69,7 @@ func TestPigLatin(t *testing.T) {
 
 }
 
-func TestTranslatePhrase(t *testing.T) {
+func TestTranslate(t *testing.T) {
 	tt := []struct {
 		input string
 		want  string
@@ -106,7 +106,7 @@ func TestTranslatePhrase(t *testing.T) {
 		{input: "Happy Birthday", want: "Appyhay Irthdaybay"},
 	}
 	for _, test := range tt {
-		got := TranslatePhrase(test.input)
+		got := Translate(test.input)
 		if got != test.want {
 			t.Errorf("for %s got %s want %s", test.input, got, test.want)
 		}
