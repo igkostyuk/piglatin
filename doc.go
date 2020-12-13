@@ -1,4 +1,4 @@
-// Package for translating from English to Pig Latin.
+// Package piglatin for translating from English to Pig Latin.
 //
 // Usage
 //
