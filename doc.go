@@ -2,8 +2,8 @@
 //
 // Usage
 //
-//  w := "Hello World!"
-//  pw := piglatin.Translate(e)
-//  log.Printf("%s is %s in pig latin.", w, pw)
+//    w := "Hello World!"
+//    pw := piglatin.Translate(w)
+//    fmt.Printf("%s is %s in pig latin.\n", w, pw)
 //
 package piglatin
